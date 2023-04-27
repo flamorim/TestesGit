@@ -1,14 +1,3 @@
-<style>
-  table {
-    border-collapse: collapse;
-    border: 1px solid #000;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 8px;
-    text-align: left;
-  }
-</style>
 
 ---
 Material referente ao modelo gerador de layouts de documento.
@@ -58,7 +47,17 @@ Os demais argumentos estão discriminados abaixo por funcionalidade.
 <p>
 
 
-
+<style>
+  table {
+    border-collapse: collapse;
+    border: 1px solid #000;
+  }
+  th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+</style>
 
 <table  border="1">
   <thead>
@@ -465,8 +464,8 @@ Segue um exemplo de um layout contendo 3 bounding boxes da classe texto:
 
 O local onde os arquivos json são armazenados é o diretório '../json' e seu nome segue a seguinte estrutura:
 
-<pre>   data-hora-imageid-<span style="color: blue;">{contador}</span>-top<span style="color: green;">{k}</span>.json,</pre><p>
-onde <span style="color: blue;">contador</span> é um número entre 1 e o argumento "--amostras" e <span style="color: green;">K</span> o argumento "--topk".
+<pre>   data-hora-imageid-{contador}-top{k}.json,</pre><p>
+onde *contador* é um número entre 1 e o argumento "--amostras" e *K* o argumento "--topk".
 
 Os arquivos png gerados, quando o WandB está ativo, é o diretório "../samples"
 
@@ -483,11 +482,13 @@ Este arquivo tem o mesmo conteúdo do arquivo util.py acrescentado de uma funç�
 ---
 **5) Atualizações importantes**
 <p>
-março/2023: coordenadas de entrada normalizadas e formato xyxy<p>
-março/2023: ajustes dos hiperparâmetros<p>
-abril/2023: inclusão de learning rate decay<p>
 
-
+- [x] março/2023: coordenadas de entrada normalizadas e formato xyxy :tada:
+- [x] março/2023: ajustes dos hiperparâmetros :tada:
+- [x] abril/2023: inclusão de learning rate decay :tada:
+  
+  
+  
 ---
 
 <p>
