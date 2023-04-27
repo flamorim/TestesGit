@@ -1,3 +1,15 @@
+<style>
+  table {
+    border-collapse: collapse;
+    border: 1px solid #000;
+  }
+  th, td {
+    border: 1px solid #000;
+    padding: 8px;
+    text-align: left;
+  }
+</style>
+
 ---
 Material referente ao modelo gerador de layouts de documento.
 ---
@@ -46,17 +58,7 @@ Os demais argumentos estão discriminados abaixo por funcionalidade.
 <p>
 
 
-<style>
-  table {
-    border-collapse: collapse;
-    border: 1px solid #000;
-  }
-  th, td {
-    border: 1px solid #000;
-    padding: 8px;
-    text-align: left;
-  }
-</style>
+
 
 <table  border="1">
   <thead>
