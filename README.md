@@ -27,8 +27,6 @@ Os arquivos de trabalho estão em \\gpucluster\share_alpha_2\NLP\generator_layou
 
 <p>
 
-
-
 ---
 
 **3) Módulo Treinamento - Pasta Code**
@@ -39,7 +37,7 @@ São eles:
 **3.1) main.py**
 
 O arquivo main.py contém o código principal, ponto de início do modelo, e contém o tratamento dos argumentos de entrada.
-<p>
+  
 A plataforma [Weights & Biases](http://wandb.ai/home) para monitoramento e visualização de experimentos de deep learning foi integrada e seu acionamento é  feito através da presença do argumento --exp contendo o nome do experimento em andamento.<p>
 Os demais argumentos estão discriminados abaixo por funcionalidade.
 
@@ -67,32 +65,32 @@ Os demais argumentos estão discriminados abaixo por funcionalidade.
   </thead>
   <tr>
     <th width="150"> Argumento</th>
-    <th width="300">Descrição</th>
-    <th width="100"><center>Exemplo</th>
+    <th width="400">Descrição</th>
+    <th width="200"><center>Exemplo</th>
   </tr>
 
   <tr>
     <td width="150"><center> --train_json</td>
-    <td width="300">arquivo json para o treinamento do modelo</td>
-    <td width="100"><center>../dataset/train.json</td>
+    <td width="400">arquivo json para o treinamento do modelo</td>
+    <td width="200"><center>../dataset/train.json</td>
   </tr>
 
   <tr>
     <td width="150"><center> --val_json</td>
-    <td width="300">arquivo json para validação do modelo</td>
-    <td width="100"><center>../dataset/valid.json</td>
+    <td width="400">arquivo json para validação do modelo</td>
+    <td width="200"><center>../dataset/valid.json</td>
   </tr>
 
   <tr>
     <td width="150"><center> --ckpt_dir</td>
-    <td width="300">local existente onde os checkpoints e modelo final criados serão armazenados</td>
-    <td width="100"><center>../checkpoint</td>
+    <td width="400">local existente onde os checkpoints e modelo final criados serão armazenados</td>
+    <td width="200"><center>../checkpoint</td>
   </tr>
 
   <tr>
     <td width="150"><center> --samples_dir</td>
-    <td width="300">quando especificado, ao final de cada época de treinamento, é o local onde amostras das 12 primeiras imagens do arquivo de validação serão geradas e armazenadas no formato png</td>
-    <td width="100"><center>../samples</td>
+    <td width="400">quando especificado, ao final de cada época de treinamento, é o local onde amostras das 12 primeiras imagens do arquivo de validação serão geradas e armazenadas no formato png</td>
+    <td width="200"><center>../samples</td>
   </tr>
 
 </table>
@@ -107,50 +105,50 @@ Argumentos relativos a configuração do modelo que, quando aplicáveis também 
   </thead>
   <tr>
     <th width="150"><center> Argumento</th>
-    <th width="300">Descrição</th>
-    <th width="100"><center>Exemplo</th>
+    <th width="400">Descrição</th>
+    <th width="200"><center>Exemplo</th>
   </tr>
 
   <tr>
     <td width="150"><center> --epochs</td>
-    <td width="300">número de épocas</td>
-    <td width="100"><center>40</td>
+    <td width="400">número de épocas</td>
+    <td width="200"><center>40</td>
   </tr>
 
   <tr>
     <td width="150"><center> --batchsize</td>
-    <td width="300">numero de amostras em um batch</td>
-    <td width="100"><center>64</td>
+    <td width="400">numero de amostras em um batch</td>
+    <td width="200"><center>64</td>
   </tr>
 
   <tr>
     <td width="150"><center> --nlayer</td>
-    <td width="300">número de blocos transformers</td>
-    <td width="100"><center>8</td>
+    <td width="400">número de blocos transformers</td>
+    <td width="200"><center>8</td>
   </tr>
 
   <tr>
     <td width="150"><center> --nhead</td>
-    <td width="300">número de cabeças por bloco transformer</td>
-    <td width="100"><center>8</td>
+    <td width="400">número de cabeças por bloco transformer</td>
+    <td width="200"><center>8</td>
   </tr>
 
   <tr>
     <td width="150"><center> --precision</td>
-    <td width="300">discretização das coordenadas, sendo 2**precision</td>
-    <td width="100"><center>8</td>
+    <td width="400">discretização das coordenadas, sendo 2**precision</td>
+    <td width="200"><center>8</td>
   </tr>
 
   <tr>
     <td width="150"><center> --max_length </td>
-    <td width="300">tamanho máximo da sequência de entrada do modelo, sabendo que cada bbx gera 5 entradas (x1,y1,x2,y2 e classe). Neste número estão incluídos o BOS e EOS</td>
-    <td width="100"><center>200</td>
+    <td width="400">tamanho máximo da sequência de entrada do modelo, sabendo que cada bbx gera 5 entradas (x1,y1,x2,y2 e classe). Neste número estão incluídos o BOS e EOS</td>
+    <td width="200"><center>200</td>
   </tr>
 
   <tr>
     <td width="150"><center> --lr_decay </td>
-    <td width="300">sua existência indica que a diminuição do learning rate deve ser aplicada</td>
-    <td width="100"><center>'N/A'</td>
+    <td width="400">sua existência indica que a diminuição do learning rate deve ser aplicada</td>
+    <td width="200"><center>'N/A'</td>
   </tr>
 
 
@@ -307,11 +305,17 @@ A tabela abaixo ilustra as chaves do objeto annotation:
   <li>otimizador: escolhido AdamW com betas = (0.9, 0.99) </li>
   <li>learning rate: escolhido MultiStepLR e, ciente que a melhor época é próxima a 12, foram definidas as épocas no intervalo [8,10,12,14,16,18,20,22] onde a taxa de aprendizado é multiplicada pelo fator 0.1
 </li>
-  <li>checkpoint: em cada época que o erro de teste tenha obtido um valor menor, um novo modelo é salvo.</li>
+  <li>checkpoint: em cada época que o erro de teste tenha obtido um valor menor, um novo modelo é salvo no diretório 'checkpoint'</li>
 </ul>
 
-O mecanismo early stop não foi implementado para que o modelo possa ser avaliado até o o número total de épocas definido no argumento de entrada
+O mecanismo early stop não foi implementado para que o modelo possa ser avaliado até o número de épocas definido no argumento de entrada.
 
+O arquivo criado referente ao modelo Pytorch tem como nome a seguinte estrutura:
+
+<pre>   modPARALLEL-epoch{epoch}-{rand:04d}.pth</pre><p>
+onde *epoch* é o número da época e *rand* é um número randômico entre 1 e 9999.
+
+<p>
 
 **3.4) model.py**
 <p>
